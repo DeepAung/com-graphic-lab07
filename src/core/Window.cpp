@@ -36,6 +36,14 @@ Window createSwapchain(const Device& dev, GLFWwindow* handle) {
 
   win.format = chosen.format;
   win.extent = caps.currentExtent;
+  if (caps.currentExtent.width != UINT32_MAX)
+    win.extent = caps.currentExtent;
+  else {
+    int width = 0;
+    int height = 0;
+    glfwGetFramebufferSize(handle, &width, &height);
+    win.extent = { static_cast<std::uint32_t>(width), static_cast<std::uint32_t>(height) };
+  }
 
   VkSwapchainCreateInfoKHR swapCI{};
   swapCI.sType            = VK_STRUCTURE_TYPE_SWAPCHAIN_CREATE_INFO_KHR;
