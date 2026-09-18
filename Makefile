@@ -1,3 +1,6 @@
+# Choose my "NVIDIA GeForce RTX 3060 Laptop GPU"
+export MESA_VK_DEVICE_SELECT := 10de:2520
+
 BUILD := build
 PARTS := info circle terrain sdf heightmap toy
 
