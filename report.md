@@ -1,5 +1,10 @@
 ## Write-up 1
 
+![Circle Mode0](./report/circle_mode0.png)
+![Circle Mode1](./report/circle_mode1.png)
+![Circle Mode2](./report/circle_mode2.png)
+![Circle Mode3](./report/circle_mode3.png)
+
 1. Where the y flip that Lab 05's viewportTransform() used to do has gone, which corner of your mode 1 view is green, and the one line you would have to change in a shader copied from ShaderToy.
 
 Lab 05 flipped Y in `viewportTransform` so that “up” in math space landed at the **top** of the picture (`((1 - ndc.y) / 2) * height`). That CPU step is gone. Vulkan already numbers pixels from the **top**, so `gl_FragCoord.y = 0` is the top row. Our `p` formula uses that as-is, so `p.y = -1` is the top of the screen.
@@ -21,6 +26,8 @@ A ShaderToy shader assumes Y grows **up**. In a copy, flip the pixel Y, the same
 A pixel does not know its neighbours. The GPU shades **blocks of 2×2 pixels (quads)** together, and the derivative is just the difference inside that block. Same fact as **Lab 06 Part III**, where neighbouring pixels taking different branches showed us the subgroup/quad.
 
 ## Write-up 2
+
+![Terrain](./report/terrain.png)
 
 1. Before measuring: your predicted ratio between 8 octaves and 1, the shape of the curve, and one line of reasoning.
 
@@ -75,6 +82,8 @@ I would ship **`k = 0.20`**: the melt is visible and matches the reference look 
 Blend probe `(430, 300)`: field says **0.010**, nearer primitive is **0.052** away — so it underestimates by about **0.042**. A **sphere-tracing / ray-marcher** that steps by `d` each time can overshoot through the wall, because it trusts `d` as a safe step size.
 
 ## Write-up 4
+
+![HeightMap Normal](./report/heightmap_normal.png)
 
 1. *Before measuring*: rank the five rows fastest to slowest, with one line of reasoning each in invocation counts.
 
