@@ -1,0 +1,99 @@
+/* Cleaner print layout for md-to-pdf */
+@page {
+  size: A4;
+  margin: 18mm 16mm;
+}
+
+html {
+  font-size: 10.5pt;
+}
+
+body {
+  font-family: "DejaVu Sans", "Noto Sans", "Liberation Sans", sans-serif;
+  line-height: 1.45;
+  color: #1a1a1a;
+  max-width: none;
+}
+
+h1, h2, h3 {
+  page-break-after: avoid;
+  margin: 1.1em 0 0.45em;
+  line-height: 1.25;
+}
+
+h2 {
+  font-size: 1.35rem;
+  border-bottom: 1px solid #ccc;
+  padding-bottom: 0.2em;
+}
+
+h3 {
+  font-size: 1.1rem;
+}
+
+p, li {
+  orphans: 3;
+  widows: 3;
+}
+
+/* Cap screenshot size so they don't eat whole pages */
+img {
+  max-width: 48%;
+  height: auto;
+  display: inline-block;
+  vertical-align: top;
+  margin: 0.35em 0.6% 0.8em;
+  border: 1px solid #ddd;
+  border-radius: 2px;
+  page-break-inside: avoid;
+}
+
+/* Single large figures (terrain, heightmap) a bit wider */
+img[alt="Terrain"],
+img[alt="HeightMap Normal"],
+img[alt="HeightMap N=32"],
+img[alt*="make_info"],
+img[alt*="Make info"],
+img[alt*="Make Info"] {
+  max-width: 72%;
+  display: block;
+  margin: 0.6em auto 1em;
+}
+
+code {
+  font-family: "DejaVu Sans Mono", "Liberation Mono", monospace;
+  font-size: 0.88em;
+  background: #f2f2f2;
+  padding: 0.05em 0.28em;
+  border-radius: 3px;
+}
+
+pre {
+  background: #f5f5f5;
+  padding: 0.6em 0.8em;
+  border-radius: 4px;
+  overflow-x: auto;
+  font-size: 0.85em;
+}
+
+table {
+  border-collapse: collapse;
+  margin: 0.6em 0 1em;
+  font-size: 0.95em;
+  page-break-inside: avoid;
+}
+
+th, td {
+  border: 1px solid #ccc;
+  padding: 0.28em 0.55em;
+}
+
+th {
+  background: #eee;
+}
+
+hr {
+  border: none;
+  border-top: 1px solid #ddd;
+  margin: 1.2em 0;
+}
