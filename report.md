@@ -67,7 +67,8 @@ Plain `f` makes a sharp crease at every grid line: mode 2 looks like a **tiled g
 
 ![SDF K=0.05](./report/sdf_k005.png)
 ![SDF K=0.20](./report/sdf_k020.png)
-TODO screenshots `k = 0.05` vs `k = 0.20`. I would ship **`k = 0.20`**: the melt is visible and matches the reference look without turning the whole silhouette into one soft blob.
+
+I would ship **`k = 0.20`**: the melt is visible and matches the reference look without turning the whole silhouette into one soft blob.
 
 3. The field is the exact distance for a circle but only a bound after a smooth union. Quote your blend probe, say by how much it underestimates, and name one algorithm that would break because of it.
 
